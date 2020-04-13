@@ -15,9 +15,9 @@ import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 
 const connector = new AppSearchAPIConnector({
-  searchKey: "search-jhqtyptwrzrhw3j9pirrdgzk",
-  engineName: "restaurant-search",
-  endpointBase: "https://d0635dc7efd2432191228a3cac4e50c2.app-search.us-central1.gcp.cloud.es.io"
+  searchKey: "XXXXXX",
+  engineName: "XXXXXX",
+  endpointBase: "XXXXXX"
 });
 
 const configurationOptions = {
