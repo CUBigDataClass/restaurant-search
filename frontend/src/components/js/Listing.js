@@ -25,9 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AlignItemsList() {
-
-  const rest_list = [
+const rest_list = [
     {   rest_id: 1,
         rest_name: 'Taco Bell',
         rest_hours: '9-5',
@@ -35,18 +33,18 @@ export default function AlignItemsList() {
     },
     {
         rest_id: 2,
-        rest_name: 'Taco Bell',
+        rest_name: 'Subway',
         rest_hours: '9-5',
         rest_stars: 3,
     },
     {   rest_id: 1,
-        rest_name: 'Taco Bell',
+        rest_name: 'Dominos',
         rest_hours: '9-5',
         rest_stars: 3,
     },
     {
         rest_id: 2,
-        rest_name: 'Taco Bell',
+        rest_name: '3',
         rest_hours: '9-5',
         rest_stars: 3,
     },
@@ -84,14 +82,18 @@ export default function AlignItemsList() {
         rest_stars: 3,
     },
   ];
+export { rest_list };
+
+
+export default function AlignItemsList(props) {
   const classes = useStyles();
 
   return (
     <div>
         <List className={classes.root}>
-        {rest_list.map(item => (
+        {rest_list.map((item, index) => (
             <React.Fragment>
-                <ListItem alignItems="flex-start">
+                <ListItem alignItems="flex-start" onClick={((e) => props.onClick(index))}>
                     <ListItemAvatar>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                     </ListItemAvatar>
