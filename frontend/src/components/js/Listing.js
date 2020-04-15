@@ -8,6 +8,9 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     position: 'relative',
     overflow: 'auto',
-    maxHeight: 650,
+    maxHeight: 620,
   },
   inline: {
     display: 'inline',
@@ -23,280 +26,102 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AlignItemsList() {
+
+  const rest_list = [
+    {   rest_id: 1,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {
+        rest_id: 2,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {   rest_id: 1,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {
+        rest_id: 2,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {   rest_id: 1,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {
+        rest_id: 2,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {   rest_id: 1,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {
+        rest_id: 2,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {   rest_id: 1,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+    {
+        rest_id: 2,
+        rest_name: 'Taco Bell',
+        rest_hours: '9-5',
+        rest_stars: 3,
+    },
+  ];
   const classes = useStyles();
 
   return (
     <div>
         <List className={classes.root}>
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Brunch this weekend?"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    Ali Connors
-                </Typography>
-                {" — I'll be in your neighborhood doing errands this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Oui Oui"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    Sandra Adams
-                </Typography>
-                {' — Do you have Paris recommendations? Have you ever…'}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
+        {rest_list.map(item => (
+            <React.Fragment>
+                <ListItem alignItems="flex-start">
+                    <ListItemAvatar>
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    </ListItemAvatar>
+                    <ListItemText
+                    primary={item.rest_name}
+                    secondary={
+                        <React.Fragment>
+                        <Typography
+                            component="span"
+                            variant="body2"
+                            className={classes.inline}
+                            color="textSecondary"
+                        >
+                            Ali Connors
+                        </Typography>
+                        <MDBRow>
+                    <MDBCol><Typography variant="body2" color="textSecondary">Hours: {item.rest_hours}</Typography></MDBCol>
+                            <MDBCol><Box component="fieldset" borderColor="transparent">
+                                        <Rating name="disabled" value={item.rest_stars} disabled />
+                                    </Box>
+                            </MDBCol>
+                        </MDBRow>
+                        </React.Fragment>
+                    }
+                    />
 
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-            primary="Summer BBQ"
-            secondary={
-                <React.Fragment>
-                <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                >
-                    to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
+                </ListItem>
+                <Divider variant="inset" component="li" />
+            </React.Fragment>
+        ))}
         </List>
         <Pagination count={10} color="primary" size="medium" />
     </div>
