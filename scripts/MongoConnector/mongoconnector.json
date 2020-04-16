@@ -1,0 +1,29 @@
+{
+   "oplogFile": "/app/oplog.timestamp",
+   "noDump": false,
+   "batchSize": 50,
+   "verbosity": 2,
+   "continueOnError": true,
+   "logging": {
+       "type": "stream"
+   },
+   "namespaces": {
+        "bdata.restaurants": {
+            "rename": "mydb_restaurants._doc"
+        },
+        "bdata.reviews": {
+            "rename": "mydb_reviews._doc"
+        }
+    },
+   "docManagers": [
+       {
+           "docManager": "elastic2_doc_manager",
+           "targetURL": "elasticsearch-0.es:9200",
+           "bulkSize": 100,
+	   "uniqueKey": "_id",
+           "args": {
+              "clientOptions": {"timeout": 5000}
+           }
+       }
+   ]
+}
