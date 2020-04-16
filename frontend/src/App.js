@@ -27,7 +27,7 @@ class App extends React.Component {
             this.setState({index:index})
           }} /></MDBCol>
           <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
-          <MDBCol size="5"><SimpleCard/></MDBCol>
+          <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
         </MDBRow>
       </div>
     );

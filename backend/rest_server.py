@@ -7,6 +7,8 @@ import collections
 app = Flask(__name__)
 es = Elasticsearch(host='es')
 
+YOUR_API_KEY = 'you wish you bitch'
+
 class LRUCache:
     def __init__(self, capacity):
         self.capacity = capacity
@@ -61,16 +63,16 @@ def pics():
   cached_response = cache.get(q)
   if cached_response != -1:
     return cached_response
-  url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + q + '&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry,place_id&key=YOUR_API_KEY'
+  url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + q + '&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry,place_id&key=' + YOUR_API_KEY
   places_response = requests.get(url)
   places_response_json = places_response.json()
   candidate = places_response_json['candidates'][0]
   place_id = candidate['place_id']
-  url = 'https://maps.googleapis.com/maps/api/place/details/json?place_id=' + place_id + '&fields=photo&key=YOUR_API_KEY'
+  url = 'https://maps.googleapis.com/maps/api/place/details/json?place_id=' + place_id + '&fields=photo&key=' + YOUR_API_KEY
   details_response = requests.get(url)
   details_response_json = details_response.json()
   for photo in details_response_json['result']['photos']:
-    url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + photo['photo_reference'] + '&key=YOUR_API_KEY'
+    url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + photo['photo_reference'] + '&key=' + YOUR_API_KEY
     response = requests.get(url, allow_redirects=False)
     res.append({
       'img': response.headers['Location']

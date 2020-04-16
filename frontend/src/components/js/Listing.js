@@ -30,12 +30,16 @@ const rest_list = [
         rest_name: 'Taco Bell',
         rest_hours: '9-5',
         rest_stars: 3,
+        lat: 47.69855629475769,
+        lng: -122.14184416996333
     },
     {
         rest_id: 2,
         rest_name: 'Subway',
         rest_hours: '9-5',
         rest_stars: 3,
+        lat: 47.50855629475769,
+        lng: -122.14174416996333
     },
     {   rest_id: 1,
         rest_name: 'Dominos',
