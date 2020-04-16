@@ -66,9 +66,9 @@ export default function RecipeReviewCard(props) {
           </IconButton>
         }
         title={rest_list[props.index].rest_name}
-        subheader="September 14, 2016"
+        subheader="ADDRESS : "
       />
-      <ImageGrid />
+      <ImageGrid name={rest_list[props.index].rest_name}/>
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import tileData from './tileData';
+import { rest_list } from "./Listing";
+import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+let tileData = []
 /**
  * The example data is structured as follows:
  *
@@ -36,15 +38,29 @@ const useStyles = makeStyles((theme) => ({
  *   },
  * ];
  */
-export default function ImageGridList() {
+
+function fetch_pics(rest_name, query, setTileData, setQuery) {
+	if (rest_name != query) {
+		console.log(rest_name, query)
+		setQuery(rest_name)
+		axios.get('http://localhost:5000/pics?query=' + rest_name)
+		.then(response => {
+			setTileData(response.data)
+		})
+	}
+}
+export default function ImageGridList(props) {
+	const [tileData, setTileData] = useState([]);
+	const [query, setQuery] = useState('');
   const classes = useStyles();
+  fetch_pics(props.name, query, setTileData, setQuery);
 
   return (
     <div className={classes.root}>
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
         {tileData.map((tile) => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
-            <img src={tile.img} alt={tile.title} />
+            <img src={tile.img}/>
           </GridListTile>
         ))}
       </GridList>
