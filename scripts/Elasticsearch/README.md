@@ -10,6 +10,6 @@ Initiates a pod with elastic search. It uses the following files:
 	
 	elasticStorage.yaml: configuration to create Storage class.
 
-	kubectl get all
+	kubectl get all: command to check if elasticsearch pods are up
 
 
