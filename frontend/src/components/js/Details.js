@@ -18,6 +18,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { rest_list } from "./Listing";
 import ImageGrid from "./ImageGrid";
 import Carousel from 'react-material-ui-carousel';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,9 +65,9 @@ export default function RecipeReviewCard(props) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          <Box component="fieldset" borderColor="transparent" style={{paddingTop: "5px",}}>
+            <Rating name="disabled" value={rest_list[props.index].rest_stars} disabled />
+          </Box>
         }
         title={rest_list[props.index].rest_name}
         subheader="ADDRESS : "
@@ -73,7 +75,7 @@ export default function RecipeReviewCard(props) {
       <ImageGrid name={rest_list[props.index].rest_name}/>
     
       <CardContent>
-        <Carousel animation="slide" indicators="false" className="MuiTypography-root makeStyles-inline-34 MuiTypography-body2 MuiTypography-colorTextSecondary">
+        <Carousel animation="slide" indicators="false" className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">
         {
           items.map( (item, index) => {
               return <Typography key={index}>{item}</Typography>
