@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     position: 'relative',
     overflow: 'auto',
-    maxHeight: 620,
+    maxHeight: '82vh',
   },
   inline: {
     display: 'inline',
@@ -85,6 +85,12 @@ const rest_list = [
         rest_hours: '9-5',
         rest_stars: 3,
     },
+    {
+        rest_id: 99,
+        rest_name: 'XYZ',
+        rest_hours: '9-9',
+        rest_stars: 1,
+    },
   ];
 export { rest_list };
 
@@ -129,7 +135,7 @@ export default function AlignItemsList(props) {
             </React.Fragment>
         ))}
         </List>
-        <Pagination count={10} color="primary" size="medium" />
+        <Pagination count={(Math.ceil((rest_list.length)/10))} color="primary" size="medium" />
     </div>
   );
 }
