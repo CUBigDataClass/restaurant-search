@@ -24,7 +24,7 @@ import Box from '@material-ui/core/Box';
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
-    height: '85vh',
+    height: '86vh',
   },
   media: {
     height: 0,
