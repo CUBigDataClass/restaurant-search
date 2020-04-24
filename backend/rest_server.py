@@ -70,7 +70,7 @@ def reviews_query():
         temp = ele['_source']
         temp.update({'top_10_reviews': []})
         #final_result.append(temp)
-        res3 = es.search(index="mydb_reviews",body={"query":{"bool":{"must":{"match":{"business_id.keyword":"FJo2jznp56MU_IdDcX038A"}},"filter":{"range":{"sentiment.score":{"gte": 0}}}}},"size":10,"from":0,"_source":["text", "reviewRating","datePublished"]})
+        res3 = es.search(index="mydb_reviews",body={"query":{"bool":{"must":{"match":{"business_id.keyword":temp['business_id']}},"filter":{"range":{"sentiment.score":{"gte": 0}}}}},"size":10,"from":0,"_source":["text", "reviewRating","datePublished"]})
         hits_rev = res3["hits"]["hits"]
         for review in hits_rev:
             #review['_source']['text'] = review['_source']['text'].encode('utf-8')
