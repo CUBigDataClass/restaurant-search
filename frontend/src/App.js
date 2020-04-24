@@ -6,7 +6,7 @@ import RecipeReviewCard from "./components/js/Details";
 import SimpleCard from "./components/js/Map";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-
+import { geolocated } from "react-geolocated";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,9 +29,16 @@ class App extends React.Component {
           <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
           <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
         </MDBRow>
+        {this.props.coords}
       </div>
     );
   }
 }
 
-export default App;
+
+export default geolocated({
+    positionOptions: {
+        enableHighAccuracy: false,
+    },
+    userDecisionTimeout: 5000,
+})(App);
