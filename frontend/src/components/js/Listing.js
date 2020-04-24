@@ -11,6 +11,9 @@ import Pagination from '@material-ui/lab/Pagination';
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
+import Card from '@material-ui/core/Card';
+
+import '../css/listing.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,49 +97,59 @@ const rest_list = [
   ];
 export { rest_list };
 
-export default function AlignItemsList(props) {
-  const classes = useStyles();
+// const classes = useStyles();
+class AlignItemsList extends React.Component {
+    constructor(props) {
+        super(props);
+        }
 
-  console.log("function created");
+    render(){
+        const {
+            props,
+        } = this;
+        return (
+            <Card>
+            <div>
+                <List className="listing-parent">
+                {rest_list.map((item, index) => (
+                    <React.Fragment>
+                        <ListItem alignItems="flex-start" onClick={((e) => props.onClick(index))}>
+                            <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            </ListItemAvatar>
+                            <ListItemText
+                            primary={item.rest_name}
+                            secondary={
+                                <React.Fragment>
+                                <Typography
+                                    component="span"
+                                    variant="body2"
+                                    className="display-inline"
+                                    color="textSecondary"
+                                >
+                                    Ali Connors
+                                </Typography>
+                                <MDBRow>
+                            <MDBCol><Typography variant="body2" color="textSecondary">Hours: {item.rest_hours}</Typography></MDBCol>
+                                    <MDBCol><Box component="fieldset" borderColor="transparent">
+                                                <Rating name="disabled" value={item.rest_stars} disabled />
+                                            </Box>
+                                    </MDBCol>
+                                </MDBRow>
+                                </React.Fragment>
+                            }
+                            />
 
-  return (
-    <div>
-        <List className={classes.root}>
-        {rest_list.map((item, index) => (
-            <React.Fragment>
-                <ListItem alignItems="flex-start" onClick={((e) => props.onClick(index))}>
-                    <ListItemAvatar>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                    </ListItemAvatar>
-                    <ListItemText
-                    primary={item.rest_name}
-                    secondary={
-                        <React.Fragment>
-                        <Typography
-                            component="span"
-                            variant="body2"
-                            className={classes.inline}
-                            color="textSecondary"
-                        >
-                            Ali Connors
-                        </Typography>
-                        <MDBRow>
-                    <MDBCol><Typography variant="body2" color="textSecondary">Hours: {item.rest_hours}</Typography></MDBCol>
-                            <MDBCol><Box component="fieldset" borderColor="transparent">
-                                        <Rating name="disabled" value={item.rest_stars} disabled />
-                                    </Box>
-                            </MDBCol>
-                        </MDBRow>
-                        </React.Fragment>
-                    }
-                    />
-
-                </ListItem>
-                <Divider variant="inset" component="li" />
-            </React.Fragment>
-        ))}
-        </List>
-        <Pagination count={(Math.ceil((rest_list.length)/10))} color="primary" size="medium" />
-    </div>
-  );
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                    </React.Fragment>
+                ))}
+                </List>
+                <Pagination count={(Math.ceil((rest_list.length)/10))} size="medium" />
+            </div>
+            </Card>
+        );
+    }
 }
+
+export default AlignItemsList;
