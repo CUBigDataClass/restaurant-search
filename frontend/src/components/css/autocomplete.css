@@ -5,7 +5,7 @@
     display: inline-block;
     position: relative;
     padding: 16px;
-    width: 80%;
+    width: 70%;
 }
 
 .react-autosuggest__input {
@@ -14,7 +14,7 @@
     padding: 10px;
     font-weight: 300;
     font-size: 16px;
-    border: 1px solid rgba(0, 126, 255, 0.24);
+    border: 1px solid rgba(63, 81, 181, 0.5);
     border-radius: 4px;
     color: #000;
     background-color: #fff;
@@ -78,13 +78,23 @@
 
 .search-button-container {
     display: inline-block;
-    width: 20%;
-    padding-right: 16px;
+    width: 30%;
     position: absolute;
     margin-top: 16px;
 }
 
-.search-button {
-    width: 100%;
+.search-button-query {
+    display: inline-block;
+    width: 40%;
     height: 50px;
+    margin-right: 16px;
+    position: relative;
+}
+
+.search-button-search {
+    display: inline-block;
+    width: 58%;
+    height: 50px;
+    position: relative;
+    margin-right: 16px;
 }

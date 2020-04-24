@@ -7,6 +7,11 @@ import SimpleCard from "./components/js/Map";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { geolocated } from "react-geolocated";
+import Slide from "@material-ui/core/Slide";
+import Grow from '@material-ui/core/Grow';
+import ScrollParallex from "./components/js/ScrollParallax";
+import Fade from "@material-ui/core/Fade";
+import NavBar from "./components/js/NavBar";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +19,8 @@ class App extends React.Component {
 
     this.state = {
       index: 0,
-      response: ''
+      response: '',
+      buttonClicked: false
     }
   }
 
@@ -22,22 +28,47 @@ class App extends React.Component {
     this.setState({response: response})
   };
 
+  handleButtonClick = () => {
+      this.setState({buttonClicked: true})
+  };
+
   render() {
     return (
       <div>
-
+          <NavBar/>
         {/*{this.props.coords}*/}
           <div>
-            <AutoComplete onDataReceived={this.onDataReceived} lat={40.01916} long={-105.2753}/>
-            <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
-              <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(index) => {
-                console.log(index)
-                this.setState({index:index})
-                }} />
-              </MDBCol>
-              <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
-              <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
-            </MDBRow>
+              <AutoComplete onDataReceived={this.onDataReceived} handleButtonClick={this.handleButtonClick} lat={40.01916} long={-105.2753}/>
+
+              { this.state.buttonClicked ? <div>
+                  <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
+                      <Grow
+                          in={this.state.buttonClicked}>
+                          <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(index) => {
+                              this.setState({index:index})
+                          }} />
+                          </MDBCol>
+                      </Grow>
+                      <Grow
+                          in={this.state.buttonClicked}
+                          style={{ transformOrigin: '0 0 0' }}
+                          {...(this.state.buttonClicked ? { timeout: 1000 } : {})}
+                      >
+                          <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
+                      </Grow>
+
+                      <Grow
+                          in={this.state.buttonClicked}
+                          style={{ transformOrigin: '0 0 0' }}
+                          {...(this.state.buttonClicked ? { timeout: 2000 } : {})}
+                      >
+                          <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
+                      </Grow>
+
+                  </MDBRow>
+              </div> : <Fade in={!this.state.buttonClicked}><ScrollParallex/></Fade> }
+
+
           </div>
       </div>
     );

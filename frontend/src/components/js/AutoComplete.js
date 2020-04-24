@@ -61,8 +61,8 @@ class AutoComplete extends React.Component {
     };
 
     handleButtonClick = () => {
-
-        axios.get(' http://34.82.23.10/dashboard', {
+        this.props.handleButtonClick();
+        axios.get('http://34.83.156.251/dashboard', {
             params: {
                 word: this.state.value,
                 lat: this.props.lat,
@@ -71,7 +71,8 @@ class AutoComplete extends React.Component {
         })
             .then((res) => {
                 console.log(res)
-                //this.setState({response: res})
+                this.setState({response: res})
+                this.props.onDataReceived(this.state.response);
             })
             .catch((error) => {
                 // handle error
@@ -102,8 +103,10 @@ class AutoComplete extends React.Component {
                     getSuggestionValue={suggestion => suggestion.name}
                     renderSuggestion={this.renderSuggestion}
                     inputProps={inputProps}/>
+
                 <div className="search-button-container">
-                    <Button className="search-button" variant="outlined" size="large" color="primary" onClick={this.handleButtonClick}>Search</Button>
+                    <Button className="search-button-query" variant="outlined" size="large" color="primary">Get Location</Button>
+                    <Button className="search-button-search" variant="outlined" size="large" color="primary" onClick={this.handleButtonClick}>Search</Button>
                 </div>
             </div>
         )
