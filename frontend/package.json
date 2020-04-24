@@ -18,12 +18,16 @@
     "material-ui": "^1.0.0-beta.47",
     "material-ui-icons": "^1.0.0-beta.36",
     "mdbreact": "^4.25.6",
+    "rc-texty": "^0.2.0",
+    "rc-tween-one": "^2.6.8",
     "react": "^16.13.1",
     "react-autosuggest": "^10.0.0",
     "react-dom": "^16.13.1",
     "react-geolocated": "^3.0.1",
     "react-material-ui-carousel": "^1.2.1",
     "react-scripts": "3.4.1",
+    "react-spring": "^8.0.27",
+    "react-wordcloud": "^1.2.2",
     "throttle-debounce": "^2.1.0"
   },
   "scripts": {
