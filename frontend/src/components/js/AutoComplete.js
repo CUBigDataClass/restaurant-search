@@ -10,7 +10,8 @@ import '../css/autocomplete.css'
 class AutoComplete extends React.Component {
     state = {
         value: '',
-        suggestions: []
+        suggestions: [],
+        response: ""
     };
 
     componentWillMount() {
@@ -59,6 +60,27 @@ class AutoComplete extends React.Component {
         this.setState({ suggestions: [] })
     };
 
+    handleButtonClick = () => {
+
+        axios.get('', {
+            params: {
+                word: this.state.value
+            }
+        })
+            .then((res) => {
+                console.log(res)
+                this.setState({response: res})
+            })
+            .catch((error) => {
+                // handle error
+                console.log(error);
+            })
+            .finally(() => {
+                // always executed
+            });
+
+    }
+
     render() {
         const { value, suggestions } = this.state;
 
@@ -79,7 +101,7 @@ class AutoComplete extends React.Component {
                     renderSuggestion={this.renderSuggestion}
                     inputProps={inputProps}/>
                 <div className="search-button-container">
-                    <Button className="search-button" variant="outlined" size="large" color="primary">Search</Button>
+                    <Button className="search-button" variant="outlined" size="large" color="primary" onClick={this.handleButtonClick}>Search</Button>
                 </div>
             </div>
         )

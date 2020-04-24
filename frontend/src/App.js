@@ -13,16 +13,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      index: 0
+      index: 0,
+      response: ''
     }
   }
+
+  onDataReceived = (response) => {
+    this.setState({response: response})
+  };
 
   render() {
     return (
       <div>
-        <AutoComplete />
-        <MDBRow>
-          <MDBCol size="3"><AlignItemsList onClick={(index) => {
+        <AutoComplete onDataReceived={this.onDataReceived}/>
+        <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
+          <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(index) => {
             console.log(index)
             this.setState({index:index})
           }} /></MDBCol>
