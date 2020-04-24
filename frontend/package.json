@@ -24,6 +24,7 @@
     "react-dom": "^16.13.1",
     "react-geolocated": "^3.0.1",
     "react-material-ui-carousel": "^1.2.1",
+    "react-pagination-list": "^1.0.8",
     "react-scripts": "3.4.1",
     "throttle-debounce": "^2.1.0"
   },

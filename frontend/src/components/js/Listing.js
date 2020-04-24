@@ -12,6 +12,7 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
+import PaginationList from 'react-pagination-list';
 
 import '../css/listing.css'
 
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     position: 'relative',
     overflow: 'auto',
-    maxHeight: '82vh',
+    maxHeight: '90vh',
   },
   inline: {
     display: 'inline',
@@ -102,50 +103,55 @@ class AlignItemsList extends React.Component {
     constructor(props) {
         super(props);
         }
-
+    state = {
+        data : rest_list
+    }
     render(){
         const {
             props,
         } = this;
         return (
             <Card>
-            <div>
+            <div style={{height:'86vh'}}>
                 <List className="listing-parent">
-                {rest_list.map((item, index) => (
-                    <React.Fragment>
-                        <ListItem alignItems="flex-start" onClick={((e) => props.onClick(index))}>
-                            <ListItemAvatar>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                            </ListItemAvatar>
-                            <ListItemText
-                            primary={item.rest_name}
-                            secondary={
-                                <React.Fragment>
-                                <Typography
-                                    component="span"
-                                    variant="body2"
-                                    className="display-inline"
-                                    color="textSecondary"
-                                >
-                                    Ali Connors
-                                </Typography>
-                                <MDBRow>
-                            <MDBCol><Typography variant="body2" color="textSecondary">Hours: {item.rest_hours}</Typography></MDBCol>
-                                    <MDBCol><Box component="fieldset" borderColor="transparent">
-                                                <Rating name="disabled" value={item.rest_stars} disabled />
-                                            </Box>
-                                    </MDBCol>
-                                </MDBRow>
-                                </React.Fragment>
-                            }
-                            />
+                    <PaginationList 
+                        data={this.state.data}
+                        pageSize={10}
+                        renderItem={(item, key) => (
+                            <React.Fragment>
+                                <ListItem key={key}alignItems="flex-start" onClick={((e) => props.onClick(key))}>
+                                    <ListItemAvatar>
+                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                    primary={item.rest_name}
+                                    secondary={
+                                        <React.Fragment>
+                                        <Typography
+                                            component="span"
+                                            variant="body2"
+                                            className="display-inline"
+                                            color="textSecondary"
+                                        >
+                                            Ali Connors
+                                        </Typography>
+                                        <MDBRow>
+                                    <MDBCol><Typography variant="body2" color="textSecondary">Hours: {item.rest_hours}</Typography></MDBCol>
+                                            <MDBCol><Box component="fieldset" borderColor="transparent">
+                                                        <Rating name="disabled" value={item.rest_stars} disabled />
+                                                    </Box>
+                                            </MDBCol>
+                                        </MDBRow>
+                                        </React.Fragment>
+                                    }
+                                    />
 
-                        </ListItem>
-                        <Divider variant="inset" component="li" />
-                    </React.Fragment>
-                ))}
+                                </ListItem>
+                                <Divider variant="inset" component="li" />
+                            </React.Fragment>
+                        )}
+                    />
                 </List>
-                <Pagination count={(Math.ceil((rest_list.length)/10))} size="medium" />
             </div>
             </Card>
         );
