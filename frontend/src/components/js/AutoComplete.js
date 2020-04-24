@@ -35,12 +35,12 @@ class AutoComplete extends React.Component {
 
 
     config = {
-        headers: { Authorization: `Bearer ${'XXXXXX'}` }
+        headers: { Authorization: `Bearer ${'search-ui8cobnufr13o746pyj19vkf'}` }
     };
 
     onSuggestionsFetchRequested = ({ value }) => {
         axios
-            .post('https://d0635dc7efd2432191228a3cac4e50c2.app-search.us-central1.gcp.cloud.es.io/api/as/v1/engines/restaurant-query-suggestion/query_suggestion',
+            .post('https://f4983fb148f8498882501182b346de67.app-search.us-central1.gcp.cloud.es.io/api/as/v1/engines/restaurant-search-query/query_suggestion',
                 {query: value, types: {documents: {fields: ["text"]}}, size: 10}, this.config
             )
             .then(res => {
@@ -62,14 +62,16 @@ class AutoComplete extends React.Component {
 
     handleButtonClick = () => {
 
-        axios.get('', {
+        axios.get('http://34.83.156.251/dashboard', {
             params: {
-                word: this.state.value
+                word: this.state.value,
+                lat: this.props.lat,
+                long: this.props.long
             }
         })
             .then((res) => {
                 console.log(res)
-                this.setState({response: res})
+                //this.setState({response: res})
             })
             .catch((error) => {
                 // handle error

@@ -25,16 +25,20 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <AutoComplete onDataReceived={this.onDataReceived}/>
-        <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
-          <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(index) => {
-            console.log(index)
-            this.setState({index:index})
-          }} /></MDBCol>
-          <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
-          <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
-        </MDBRow>
-        {this.props.coords}
+
+        {/*{this.props.coords}*/}
+          <div>
+            <AutoComplete onDataReceived={this.onDataReceived} lat={40.01916} long={-105.2753}/>
+            <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
+              <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(index) => {
+                console.log(index)
+                this.setState({index:index})
+                }} />
+              </MDBCol>
+              <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
+              <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
+            </MDBRow>
+          </div>
       </div>
     );
   }
