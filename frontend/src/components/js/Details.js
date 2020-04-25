@@ -77,7 +77,7 @@ export default function RecipeReviewCard(props) {
         title={rest_list[props.index].rest_name}
         subheader="ADDRESS : "
       />
-      <CardMedia className={classes.media}>
+      { rest_list[props.index].categories && <CardMedia className={classes.media}>
         {rest_list[props.index].categories.map((item, index) => (
           <Chip
             label={item}
@@ -87,6 +87,7 @@ export default function RecipeReviewCard(props) {
           />
         ))}
       </CardMedia> 
+      }
       <ImageGrid name={rest_list[props.index].rest_name}/>
     
       <CardContent>
