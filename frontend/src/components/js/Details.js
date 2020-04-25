@@ -20,6 +20,7 @@ import ImageGrid from "./ImageGrid";
 import Carousel from 'react-material-ui-carousel';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,8 +28,12 @@ const useStyles = makeStyles((theme) => ({
     height: '82vh',
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -72,6 +77,16 @@ export default function RecipeReviewCard(props) {
         title={rest_list[props.index].rest_name}
         subheader="ADDRESS : "
       />
+      <CardMedia className={classes.media}>
+        {rest_list[props.index].categories.map((item, index) => (
+          <Chip
+            label={item}
+            clickable
+            color="primary"
+            variant="outlined"
+          />
+        ))}
+      </CardMedia> 
       <ImageGrid name={rest_list[props.index].rest_name}/>
     
       <CardContent>

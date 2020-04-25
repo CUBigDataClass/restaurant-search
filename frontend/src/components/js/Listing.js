@@ -35,7 +35,8 @@ const rest_list = [
         rest_hours: '9-5',
         rest_stars: 3,
         lat: 47.69855629475769,
-        lng: -122.14184416996333
+        lng: -122.14184416996333,
+        categories: ['Taco', 'Mexican','Cuisine']
     },
     {
         rest_id: 2,
