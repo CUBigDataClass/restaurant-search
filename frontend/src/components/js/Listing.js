@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     position: 'relative',
     overflow: 'auto',
-    maxHeight: '90vh',
+    maxHeight: '82vh',
   },
   inline: {
     display: 'inline',
@@ -112,7 +112,7 @@ class AlignItemsList extends React.Component {
         } = this;
         return (
             <Card>
-            <div style={{height:'86vh'}}>
+            <div style={{height:'82vh'}}>
                 <List className="listing-parent">
                     <PaginationList 
                         data={this.state.data}

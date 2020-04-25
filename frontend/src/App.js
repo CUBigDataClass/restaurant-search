@@ -54,7 +54,7 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 1000 } : {})}
                       >
-                          <MDBCol size="4"><RecipeReviewCard index={this.state.index}/></MDBCol>
+                          <MDBCol size="5"><RecipeReviewCard index={this.state.index}/></MDBCol>
                       </Grow>
 
                       <Grow
@@ -62,7 +62,7 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 2000 } : {})}
                       >
-                          <MDBCol size="5"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
+                          <MDBCol size="4"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol>
                       </Grow>
 
                   </MDBRow>
