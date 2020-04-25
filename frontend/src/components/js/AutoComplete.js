@@ -35,12 +35,12 @@ class AutoComplete extends React.Component {
 
 
     config = {
-        headers: { Authorization: `Bearer ${'search-ui8cobnufr13o746pyj19vkf'}` }
+        headers: { Authorization: `Bearer ${'search-wjvmi2deimj35bjhyedbpiac'}` }
     };
 
     onSuggestionsFetchRequested = ({ value }) => {
         axios
-            .post('https://f4983fb148f8498882501182b346de67.app-search.us-central1.gcp.cloud.es.io/api/as/v1/engines/restaurant-search-query/query_suggestion',
+            .post('https://8c3f927e06874e2990808e9b6c03f56c.app-search.us-west1.gcp.cloud.es.io/api/as/v1/engines/restaurant-search-query/query_suggestion',
                 {query: value, types: {documents: {fields: ["text"]}}, size: 10}, this.config
             )
             .then(res => {
