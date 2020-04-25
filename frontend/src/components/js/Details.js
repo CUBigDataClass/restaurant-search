@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  // console.log(props)
+  // const rest_list = props.rest_list.data
+  // console.log(rest_list)
+  // const current_rest = rest_list.find(x => x["business_id"] === props.index)
+  // console.log(current_rest)
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

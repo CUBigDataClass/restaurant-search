@@ -62,7 +62,7 @@ class AutoComplete extends React.Component {
 
     handleButtonClick = () => {
         this.props.handleButtonClick();
-        axios.get('http://34.83.156.251/dashboard', {
+        axios.get('http://35.233.219.244//dashboard', {
             params: {
                 word: this.state.value,
                 lat: this.props.lat,

@@ -105,7 +105,7 @@ class AlignItemsList extends React.Component {
         super(props);
         }
     state = {
-        data : rest_list
+        data : this.props.rest_list.data
     }
     render(){
         const {
@@ -116,16 +116,16 @@ class AlignItemsList extends React.Component {
             <div style={{height:'82vh'}}>
                 <List className="listing-parent">
                     <PaginationList 
-                        data={this.state.data}
+                        data={props.rest_list.data}
                         pageSize={10}
                         renderItem={(item, key) => (
                             <React.Fragment>
-                                <ListItem key={key}alignItems="flex-start" onClick={((e) => props.onClick(key))}>
+                                <ListItem key={key}alignItems="flex-start" onClick={((e) => props.onClick(item["business_id"]))}>
                                     <ListItemAvatar>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                                     </ListItemAvatar>
                                     <ListItemText
-                                    primary={item.rest_name}
+                                    primary={item["name"]}
                                     secondary={
                                         <React.Fragment>
                                         <Typography
@@ -134,12 +134,12 @@ class AlignItemsList extends React.Component {
                                             className="display-inline"
                                             color="textSecondary"
                                         >
-                                            Ali Connors
+                                            {item["streetAddress"]}
                                         </Typography>
                                         <MDBRow>
-                                    <MDBCol><Typography variant="body2" color="textSecondary">Hours: {item.rest_hours}</Typography></MDBCol>
+                                    <MDBCol><Typography variant="body2" color="textSecondary">{item["city"]}</Typography></MDBCol>
                                             <MDBCol><Box component="fieldset" borderColor="transparent">
-                                                        <Rating name="disabled" value={item.rest_stars} disabled />
+                                                        <Rating name="disabled" value={item["rating"]} disabled />
                                                     </Box>
                                             </MDBCol>
                                         </MDBRow>
