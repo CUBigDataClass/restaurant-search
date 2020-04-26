@@ -18,7 +18,15 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      index: 0,
+      bid: '',
+      bname: '',
+      baddress: '',
+      bcategories: '',
+      bcity: '',
+      blocation: '',
+      brating: '',
+      breview_count: '',
+      btop_10: '',
       response: '',
       buttonClicked: false
     }
@@ -44,8 +52,18 @@ class App extends React.Component {
                   <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
                       <Grow
                           in={this.state.buttonClicked}>
-                          <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(index) => {
-                              this.setState({index:index})
+                          <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(current_rest) => {
+                              // this.setState({index:index})
+                              this.setState({ bid: current_rest.bid,
+                              bname: current_rest.bname ,
+                              baddress: current_rest.baddress,
+                              bcategories: current_rest.bcategories,
+                              bcity: current_rest.bcity,
+                              blocation: current_rest.blocation,
+                              brating: current_rest.brating,
+                              breview_count: current_rest.breview_count,
+                              btop_10: current_rest.btop_10})
+                              console.log(current_rest)
                           }} />
                           </MDBCol>
                       </Grow>
@@ -54,8 +72,15 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 1000 } : {})}
                       >
-                          {/* <MDBCol size="5"><RecipeReviewCard index={this.state.index}/></MDBCol> */}
-                          <MDBCol size="5"></MDBCol>
+                          <MDBCol size="5"><RecipeReviewCard bid= {this.state.bid} bname= {this.state.bname}
+                              baddress= {this.state.baddress}
+                              bcategories= {this.state.bcategories}
+                              bcity= {this.state.bcity}
+                              blocation= {this.state.blocation}
+                              brating= {this.state.brating}
+                              breview_count= {this.state.breview_count}
+                              btop_10= {this.state.btop_10}/></MDBCol>
+                          {/* <MDBCol size="5"></MDBCol> */}
                       </Grow>
 
                       <Grow

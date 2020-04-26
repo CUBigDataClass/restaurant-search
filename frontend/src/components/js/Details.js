@@ -58,13 +58,16 @@ class RecipeReviewCard extends React.Component {
   constructor(props) {
       super(props);
       }
-
+  state = {
+      btop_10 : this.props.btop_10
+  }
   render(){
 
     const {
       props,
     } = this;
-
+    // const btop_10 = props.btop_10
+    console.log(props.btop_10)
     // console.log(props)
     // rest_list = props.rest_list.data
     // console.log(rest_list)
@@ -81,33 +84,34 @@ class RecipeReviewCard extends React.Component {
           }
           action={
             <Box component="fieldset" borderColor="transparent" style={{paddingTop: "5px",}}>
-              <Rating name="disabled" value={rest_list[props.index].rest_stars} disabled />
+              <Rating name="disabled" value={props.brating} disabled />
             </Box>
           }
-          title={rest_list[props.index].rest_name}
-          subheader="ADDRESS : "
+          title={props.bname}
+          subheader={props.baddress} 
         />
-        { rest_list[props.index].categories && <CardMedia className="details-media">
-          {rest_list[props.index].categories.map((item, index) => (
+        { props.bcategories && <CardMedia className="details-media padding_12_lr">
+          {props.bcategories.map((item, index) => (
             <Chip
               label={item}
               clickable
               color="primary"
               variant="outlined"
+              className="margin_4"
             />
           ))}
         </CardMedia> 
         }
-        <ImageGrid name={rest_list[props.index].rest_name}/>
+        <ImageGrid name={props.bname}/>
       
         <CardContent>
-          <Carousel animation="slide" indicators="false" className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">
+        {props.btop_10 &&<Carousel animation="slide" indicators="false" className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">
           {
-            items.map( (item, index) => {
-                return <Typography key={index}>{item}</Typography>
+            props.btop_10.map( (item, index) => {
+                return <Typography key={index}>{item.text}</Typography>
             })
           }
-          </Carousel>
+          </Carousel>}
         </CardContent>
       </Card>
     );

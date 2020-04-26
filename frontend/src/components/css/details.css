@@ -1,17 +1,31 @@
 .details-root{
     position: relative;
     overflow: auto;
-    max-height: 82vh;
+    height: 82vh;
 }
 
 .details-media{
     display: 'flex';
     justify-content: center;
     flex-wrap: wrap;
+    margin: 4px;
 }
 
 .details-avatar{
     background-color: red;
+}
+
+.overflow-auto{
+    overflow: auto;
+}
+
+.margin_4{
+  margin: 4px !important;
+}
+
+.padding_12_lr{
+  padding-left: 12px ;
+  padding-right: 12px;
 }
 
 /* const useStyles = makeStyles((theme) => ({
