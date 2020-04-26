@@ -1,0 +1,17 @@
+runtime: nodejs10
+service: default
+
+handlers:
+  # This configures Google App Engine to serve the files in the app's static
+  # directory.
+
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
+  - url: /
+    static_dir: build
+    http_headers:
+      Access-Control-Allow-Origin: "*"
+  - url: /.*
+    script: auto
+    secure: always
