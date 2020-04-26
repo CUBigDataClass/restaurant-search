@@ -23,7 +23,7 @@ class App extends React.Component {
       baddress: '',
       bcategories: '',
       bcity: '',
-      blocation: '',
+      blocation: '47.69855629475769,-122.14184416996333',
       brating: '',
       breview_count: '',
       btop_10: '',
@@ -88,8 +88,8 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 2000 } : {})}
                       >
-                          {/* <MDBCol size="4"><SimpleCard lat={rest_list[this.state.index].lat} lng={rest_list[this.state.index].lng}/></MDBCol> */}
-                          <MDBCol size="4"></MDBCol>
+                          <MDBCol size="4"><SimpleCard lat={this.state.blocation.split(',')[0]} lng={this.state.blocation.split(',')[1]}/></MDBCol>
+                          {/* <MDBCol size="4"></MDBCol> */}
                       </Grow>
 
                   </MDBRow>
