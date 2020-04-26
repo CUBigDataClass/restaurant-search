@@ -1,0 +1,43 @@
+.details-root{
+    position: relative;
+    overflow: auto;
+    max-height: 82vh;
+}
+
+.details-media{
+    display: 'flex';
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.details-avatar{
+    background-color: red;
+}
+
+/* const useStyles = makeStyles((theme) => ({
+    root: {
+      position: 'relative',
+      height: '82vh',
+    },
+    media: {
+      display: 'flex',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(0.5),
+      },
+    },
+    expand: {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    expandOpen: {
+      transform: 'rotate(180deg)',
+    },
+    avatar: {
+      backgroundColor: red[500],
+    },
+  })); */

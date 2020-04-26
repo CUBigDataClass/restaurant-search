@@ -21,6 +21,7 @@ import Carousel from 'react-material-ui-carousel';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
+import '../css/details.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,60 +51,68 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// const classes = useStyles();
+const items = ["Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food!","Decent!","Bad Food!"];
 
-
-export default function RecipeReviewCard(props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-  // console.log(props)
-  // const rest_list = props.rest_list.data
-  // console.log(rest_list)
-  // const current_rest = rest_list.find(x => x["business_id"] === props.index)
-  // console.log(current_rest)
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  const items = ["Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food! Good Food!","Decent!","Bad Food!"]
-  return (
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <Box component="fieldset" borderColor="transparent" style={{paddingTop: "5px",}}>
-            <Rating name="disabled" value={rest_list[props.index].rest_stars} disabled />
-          </Box>
-        }
-        title={rest_list[props.index].rest_name}
-        subheader="ADDRESS : "
-      />
-      { rest_list[props.index].categories && <CardMedia className={classes.media}>
-        {rest_list[props.index].categories.map((item, index) => (
-          <Chip
-            label={item}
-            clickable
-            color="primary"
-            variant="outlined"
-          />
-        ))}
-      </CardMedia> 
+class RecipeReviewCard extends React.Component {
+  constructor(props) {
+      super(props);
       }
-      <ImageGrid name={rest_list[props.index].rest_name}/>
-    
-      <CardContent>
-        <Carousel animation="slide" indicators="false" className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">
-        {
-          items.map( (item, index) => {
-              return <Typography key={index}>{item}</Typography>
-          })
+
+  render(){
+
+    const {
+      props,
+    } = this;
+
+    // console.log(props)
+    // rest_list = props.rest_list.data
+    // console.log(rest_list)
+    // current_rest = rest_list.find(x => x["business_id"] === props.index)
+    // console.log(current_rest)
+
+    return(
+      <Card className="details-root">
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className="details-avatar">
+              R
+            </Avatar>
+          }
+          action={
+            <Box component="fieldset" borderColor="transparent" style={{paddingTop: "5px",}}>
+              <Rating name="disabled" value={rest_list[props.index].rest_stars} disabled />
+            </Box>
+          }
+          title={rest_list[props.index].rest_name}
+          subheader="ADDRESS : "
+        />
+        { rest_list[props.index].categories && <CardMedia className="details-media">
+          {rest_list[props.index].categories.map((item, index) => (
+            <Chip
+              label={item}
+              clickable
+              color="primary"
+              variant="outlined"
+            />
+          ))}
+        </CardMedia> 
         }
-        </Carousel>
-      </CardContent>
-    </Card>
-  );
+        <ImageGrid name={rest_list[props.index].rest_name}/>
+      
+        <CardContent>
+          <Carousel animation="slide" indicators="false" className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">
+          {
+            items.map( (item, index) => {
+                return <Typography key={index}>{item}</Typography>
+            })
+          }
+          </Carousel>
+        </CardContent>
+      </Card>
+    );
+  }
 }
+
+export default RecipeReviewCard;
+
