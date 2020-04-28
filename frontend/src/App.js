@@ -1,7 +1,7 @@
 import React from "react";
 
 import AutoComplete from "./components/js/AutoComplete";
-import AlignItemsList, { rest_list } from "./components/js/Listing";
+import AlignItemsList from "./components/js/Listing";
 import RecipeReviewCard from "./components/js/Details";
 import SimpleCard from "./components/js/Map";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";

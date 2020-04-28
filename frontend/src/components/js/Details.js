@@ -15,7 +15,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { rest_list } from "./Listing";
 import ImageGrid from "./ImageGrid";
 import Carousel from 'react-material-ui-carousel';
 import Rating from '@material-ui/lab/Rating';
