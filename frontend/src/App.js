@@ -13,6 +13,7 @@ import ScrollParallex from "./components/js/ScrollParallax";
 import Fade from "@material-ui/core/Fade";
 import NavBar from "./components/js/NavBar";
 import LoadingDialog from "./components/js/LoadingDialog";
+import logo from "./components/assets/logo.png"
 
 class App extends React.Component {
   constructor(props) {
@@ -49,7 +50,10 @@ class App extends React.Component {
     return (
       <div>
           <LoadingDialog isfetching={this.state.isfetching}/>
-          {/*{this.props.coords}*/}
+          <MDBRow style={{marginRight: '15px', marginLeft: '15px', display: 'flex',
+              justifyContent: 'center' }}>
+              <img src={logo} style={{height: '70px'}}/>
+          </MDBRow>
           <div>
 
               <AutoComplete onDataReceived={this.onDataReceived} handleButtonClick={this.handleButtonClick}/>
