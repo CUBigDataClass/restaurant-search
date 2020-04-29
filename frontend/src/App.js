@@ -89,7 +89,7 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 2000 } : {})}
                       >
-                          <MDBCol size="4"><SimpleCard lat={this.state.blocation.split(',')[0]} lng={this.state.blocation.split(',')[1]}/></MDBCol>
+                          <MDBCol size="4"><SimpleCard centreLat={} centeLong={} lat={this.state.blocation.split(',')[0]} lng={this.state.blocation.split(',')[1]}/></MDBCol>
                           {/* <MDBCol size="4"></MDBCol> */}
                       </Grow>
 
