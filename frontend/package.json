@@ -29,6 +29,7 @@
     "react-pagination-list": "^1.0.8",
     "react-scripts": "3.4.1",
     "react-spring": "^8.0.27",
+    "react-trunk8": "^1.10.0",
     "react-wordcloud": "^1.2.2",
     "throttle-debounce": "^2.1.0"
   },

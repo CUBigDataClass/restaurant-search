@@ -33,9 +33,21 @@ const useStyles = makeStyles((theme) => ({
 class AlignItemsList extends React.Component {
     constructor(props) {
         super(props);
-        }
+    }
     state = {
         data : this.props.rest_list.data
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps.rest_list.length == 0 && this.props.rest_list.length != 0) {
+            console.log('Biljith', 1)
+            this.props.onClick({bid: this.props.rest_list.data[0]["business_id"], bname: this.props.rest_list.data[0]["name"],bcategories: this.props.rest_list.data[0]["categories"], bcity: this.props.rest_list.data[0]["city"],blocation : this.props.rest_list.data[0]["location"], brating : this.props.rest_list.data[0]["rating"], breview_count : this.props.rest_list.data[0]["reviewCount"], btop_10: this.props.rest_list.data[0]["top_10_reviews"]})
+            return
+        } else if (prevProps.rest_list.data[0].business_id != this.props.rest_list.data[0].business_id && prevProps.rest_list.data.length != this.props.rest_list.data.length) {
+            console.log('Biljith', 2)
+            this.props.onClick({bid: this.props.rest_list.data[0]["business_id"], bname: this.props.rest_list.data[0]["name"],bcategories: this.props.rest_list.data[0]["categories"], bcity: this.props.rest_list.data[0]["city"],blocation : this.props.rest_list.data[0]["location"], brating : this.props.rest_list.data[0]["rating"], breview_count : this.props.rest_list.data[0]["reviewCount"], btop_10: this.props.rest_list.data[0]["top_10_reviews"]})
+        }
+        else console.log('Biljith', 'poopoo')
+        //if ()//
     }
     render(){
         const {
@@ -43,14 +55,14 @@ class AlignItemsList extends React.Component {
         } = this;
         return (
             <Card>
-            <div style={{height:'82vh'}}>
+            <div style={{height:'80vh'}}>
                 <List className="listing-parent">
                     <PaginationList 
                         data={props.rest_list.data}
-                        pageSize={10}
+                        pageSize={5}
                         renderItem={(item, key) => (
                             <React.Fragment>
-                                <ListItem key={key}alignItems="flex-start" onClick={((e) => props.onClick({bid: item["business_id"], bname: item["name"],bcategories: item["categories"], bcity: item["city"],blocation : item["location"], brating : item["rating"], breview_count : item["reviewCount"], btop_10: item["top_10_reviews"]}))}>
+                                <ListItem key={key} className={'list_item' + key} alignItems="flex-start" onClick={((e) => props.onClick({bid: item["business_id"], bname: item["name"],bcategories: item["categories"], bcity: item["city"],blocation : item["location"], brating : item["rating"], breview_count : item["reviewCount"], btop_10: item["top_10_reviews"]}))}>
                                     <ListItemAvatar>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                                     </ListItemAvatar>

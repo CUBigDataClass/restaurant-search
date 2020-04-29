@@ -9,7 +9,7 @@ python3 setup.py install
 pip3 install -e .
 
 pip3 install elasticsearch
-pip3 insrall requests
+pip3 install requests
 cd /app
 
 curl --header 'Content-Type:application/json' --request PUT http://elasticsearch-0.es:9200/mydb_reviews -d '{"mappings":{"properties":{"business_id":{"type":"text","fields":{"keyword":{"type":"keyword"}}}}}}'

@@ -1,0 +1,87 @@
+STEPS TO EXECUTE (All commands should be run on gcloud unless specified otherwise)
+----------------
+
+1. gcloud config set project <Insert your PROJECT_ID here>
+
+2. cd BigData
+
+3. sh start-cluster.sh
+
+kubectl get all
+
+4. [IN mongodb DIR] sh mongoStart.sh
+
+5. [IN elasticsearch DIR] sh elasticStart.sh
+
+6. Wait for the status of all 3 mongo-pods change to 'RUNNING' (Run 'kubectl get all' to check this)
+
+7. kubectl exec -it mongo-0 mongo
+
+8. Now the user will be in the mongo shell of mongo-0 POD:
+	8a. Run the below mentioned commands, one at a time
+	8b. rs.initiate()
+	8c. var cfg = rs.conf()
+	8d. cfg.members[0].host="mongo-0.mongo:27017"
+	8e. rs.reconfig(cfg)
+	8f. rs.add("mongo-1.mongo:27017")
+	8g. rs.add("mongo-2.mongo:27017")
+	8h. rs.status()
+	8i. Check the output of the aboive command (Out of the 3 replicas, the status of one should be PRIMARY and the other 2 SECONDARY)
+	8j. exit
+
+9. Now the user will come back to the gcloud interface
+
+10. [IN mongoconnect DIR] sh mongoconnectStart.sh
+
+11. kubectl get pods
+[NOTE DOWN THE POD NAME FOR MONGOCONNECT]
+
+12. kubectl logs -f <insert mongoconnect pod name here>
+	12a. The user will be able to see the execution. Wait till all data has streamed from mongodb to elasticsearch
+
+13. Open a new tab on the gcloud interface
+
+14. [IN input DIR] kubectl cp restaurant_details.json mongo-0:/
+
+15. [IN input DIR] kubectl cp restaurant_reviews.json mongo-0:/
+
+16. kubectl exec -it mongo-0 bash
+
+17. Now the user will be in mongo-0 POD:
+	17a. mongoimport --db bdata --collection restaurants --drop --file restaurant_details.json
+	17b. mongoimport --db bdata --collection reviews --drop --file restaurant_reviews.json
+	17c. exit
+
+18. Now the user will come back to the gcloud interface
+
+19. cd BigData
+
+20. [IN server DIR] sh serverStart.sh
+
+21. kubectl get pods
+[NOTE DOWN THE POD NAME FOR SERVER]
+
+22. kubectl logs -f <insert server pod name here>
+	22a. The user will be able to see the execution. Wait till the flask server is running
+
+23. Open a new tab on the glcoud interface
+
+24. kubectl get all
+
+25. Note down the external IP of the server pod (will be listed under the services table)
+
+26. curl http://<External-IP>/dashboard?word=taco
+
+27. Switch to the tab where the server is running. After executing the curl command (above) you should be able to see the output.
+
+
+NOTE: WHEN DONE, DELETE IMAGES IN GCR, STORAGE BUCKET, PERSISTENT DISKS (COMPUTER ENGINE -> DISKS)
+
+Commands to delete:
+gcloud container clusters delete bigdata-cluster --zone=us-west1-b	[REMOVE CLUSTER]
+
+
+docker rmi $(docker images -a -q) -f 								[REMOVE IMAGES]
+kubectl delete svc <service-name>									[REMOVE SERVICES]
+kubectl delete statefulset <statefulset-name>						[REMOVE STATEFULSET]
+kubectl delete deployments <deployment-name>						[REMOVE DEPLOYMENT]

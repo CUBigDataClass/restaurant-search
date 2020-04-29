@@ -119,6 +119,7 @@ class AutoComplete extends React.Component {
 
     handleButtonClick = () => {
         this.props.handleButtonClick();
+<<<<<<< HEAD
         let lat, long;
         for (const [index, location] of locations.entries()) {
             if(this.state.locationValue===location.name)
@@ -128,6 +129,8 @@ class AutoComplete extends React.Component {
             }
 
         }
+=======
+>>>>>>> 75d10eadab3ae480285b78bdbfd453e4dbc16d0a
         axios.get('http://104.198.7.64/dashboard', {
             params: {
                 word: this.state.queryValue,
