@@ -20,7 +20,8 @@ import Carousel from 'react-material-ui-carousel';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
-import '../css/details.css'
+import '../css/details.css';
+import Trunk8 from 'react-trunk8';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,7 +108,7 @@ class RecipeReviewCard extends React.Component {
         {props.btop_10 &&<Carousel animation="slide" indicators="false" className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">
           {
             props.btop_10.map( (item, index) => {
-                return <Typography key={index}>{item.text}</Typography>
+                return <Trunk8 lines={4}> <Typography key={index}>{item.text}</Typography> </Trunk8>
             })
           }
           </Carousel>}

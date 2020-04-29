@@ -67,9 +67,9 @@ spec:
         # NOTE: you can increase this resources
         resources:
           requests:
-            memory: 1Gi
+            memory: 2Gi
           limits:
-            memory: 3Gi
+            memory: 4Gi
         env:
           # NOTE: the cluster name; update this
           - name: cluster.name
@@ -85,7 +85,7 @@ spec:
             value: "elasticsearch-0"
           # NOTE: You can increase the heap size
           - name: ES_JAVA_OPTS
-            value: -Xms1g -Xmx1g
+            value: -Xms2g -Xmx2g
         volumeMounts:
         - name: data
           mountPath: /usr/share/elasticsearch/data
@@ -99,4 +99,4 @@ spec:
       # NOTE: You can increase the storage size
       resources:
         requests:
-          storage: 1Gi
+          storage: 3Gi

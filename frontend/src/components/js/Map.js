@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const mapStyles = {
   width: '100%',
-  maxHeight: '82vh'
+  maxHeight: '80vh'
 };
 
 export class MapContainer extends React.Component {
