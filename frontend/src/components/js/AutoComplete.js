@@ -128,7 +128,7 @@ class AutoComplete extends React.Component {
             }
 
         }
-        axios.get('http://104.198.7.64/dashboard', {
+        axios.get('http://34.82.115.117/dashboard', {
             params: {
                 word: this.state.queryValue,
                 lat: lat,
@@ -167,7 +167,7 @@ class AutoComplete extends React.Component {
 
         return (
             <div className="autocomplete-container">
-                <MDBRow style={{marginRight: '0px', marginLeft: '0px' }}>
+                <MDBRow style={{marginRight: '0px', marginLeft: '0px', width: '100%', position: 'sticky', zIndex: 10}}>
                     <MDBCol size="7" style={{padding: '10px 0px 0px 10px', margin: '0px'  }}>
                         <Autosuggest
                             suggestions={suggestions}

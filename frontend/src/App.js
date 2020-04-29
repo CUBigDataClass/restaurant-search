@@ -12,6 +12,7 @@ import Grow from '@material-ui/core/Grow';
 import ScrollParallex from "./components/js/ScrollParallax";
 import Fade from "@material-ui/core/Fade";
 import NavBar from "./components/js/NavBar";
+import LoadingDialog from "./components/js/LoadingDialog";
 
 class App extends React.Component {
   constructor(props) {
@@ -30,37 +31,41 @@ class App extends React.Component {
       response: '',
       selectedlat: 0,
       selectedLong: 0,
-      buttonClicked: false
+      buttonClicked: false,
+      isfetching: false
     }
   }
 
   onDataReceived = (response, lat, long) => {
-    this.setState({response: response, selectedlat: lat, selectedlong: long})
+    this.setState({response: response, selectedlat: lat, selectedlong: long, isfetching: false})
+
   };
 
   handleButtonClick = () => {
-      this.setState({buttonClicked: true})
+      this.setState({buttonClicked: true, isfetching: true})
   };
 
   render() {
     return (
       <div>
-          <NavBar/>
-        {/*{this.props.coords}*/}
+          <LoadingDialog isfetching={this.state.isfetching}/>
+          {/*{this.props.coords}*/}
           <div>
 
               <AutoComplete onDataReceived={this.onDataReceived} handleButtonClick={this.handleButtonClick}/>
 
               { this.state.buttonClicked ? <div>
-                  <MDBRow style={{marginRight: '30px', marginLeft: '15px' }}>
+                  <MDBRow style={{marginRight: '30px', marginLeft: '15px'}}>
                       <Grow
                           in={this.state.buttonClicked}>
                           <MDBCol size="3" style={{padding: '0px 0px 0px 10px', margin: '0px'  }}><AlignItemsList rest_list={this.state.response} onClick={(current_rest) => {
                               // this.setState({index:index})
+                              let categories;
+                              (typeof current_rest.bcategories === 'string' ) ? categories= current_rest.bcategories.split(',') :  categories= current_rest.bcategories;
                               this.setState({ bid: current_rest.bid,
                               bname: current_rest.bname ,
                               baddress: current_rest.baddress,
-                              bcategories: current_rest.bcategories,
+                              bcategories: categories,
                               bcity: current_rest.bcity,
                               blocation: current_rest.blocation,
                               brating: current_rest.brating,

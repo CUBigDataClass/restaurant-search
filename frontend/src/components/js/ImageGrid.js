@@ -43,7 +43,7 @@ function fetch_pics(rest_name, query, setTileData, setQuery) {
 	if (rest_name != query) {
 		console.log(rest_name, query)
 		setQuery(rest_name)
-		axios.get('http://104.198.7.64/pics?query=' + rest_name)
+		axios.get('http://34.82.115.117/pics?query=' + rest_name)
 		.then(response => {
 			setTileData(response.data)
 		})
