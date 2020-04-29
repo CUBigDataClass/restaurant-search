@@ -78,9 +78,7 @@ class RecipeReviewCard extends React.Component {
       <Card className="details-root">
         <CardHeader
           avatar={
-            <Avatar aria-label="recipe" className="details-avatar">
-              R
-            </Avatar>
+            <Avatar alt= {props.bname} className="details-avatar" src="/static/images/avatar/1.jpg"/>
           }
           action={
             <Box component="fieldset" borderColor="transparent" style={{paddingTop: "5px",}}>

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a6a80bf5.chunk.css",
+    "main.js": "/static/js/main.eae48d0b.chunk.js",
+    "main.js.map": "/static/js/main.eae48d0b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9e76eb68.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9e76eb68.js.map",
+    "static/css/2.58c6c8cd.chunk.css": "/static/css/2.58c6c8cd.chunk.css",
+    "static/js/2.8ebe5bf7.chunk.js": "/static/js/2.8ebe5bf7.chunk.js",
+    "static/js/2.8ebe5bf7.chunk.js.map": "/static/js/2.8ebe5bf7.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c772cd9ddd5a4cca78e5f2abde2e6371.js": "/precache-manifest.c772cd9ddd5a4cca78e5f2abde2e6371.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.58c6c8cd.chunk.css.map": "/static/css/2.58c6c8cd.chunk.css.map",
+    "static/css/main.a6a80bf5.chunk.css.map": "/static/css/main.a6a80bf5.chunk.css.map",
+    "static/js/2.8ebe5bf7.chunk.js.LICENSE.txt": "/static/js/2.8ebe5bf7.chunk.js.LICENSE.txt",
+    "static/media/scrollparallax.css": "/static/media/search.ae90d59f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9e76eb68.js",
+    "static/css/2.58c6c8cd.chunk.css",
+    "static/js/2.8ebe5bf7.chunk.js",
+    "static/css/main.a6a80bf5.chunk.css",
+    "static/js/main.eae48d0b.chunk.js"
+  ]
+}

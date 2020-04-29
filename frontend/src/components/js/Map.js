@@ -10,7 +10,9 @@ export class MapContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      store: {lat: this.props.lat, lng: this.props.lng}
+      store: {lat: this.props.lat, lng: this.props.lng},
+      latitude: this.props.selectedlat,
+      longitude: this.props.selectedlong
     }
   }
 
@@ -26,19 +28,27 @@ export class MapContainer extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.lat !== this.props.lat && prevProps.lng !== this.props.lng) {
       this.setState({
-        store: {lat: this.props.lat, lng: this.props.lng}
+        store: {lat: this.props.lat, lng: this.props.lng},
+          latitude: this.props.selectedlat,
+          longitude: this.props.selectedlong
       })
     }
   }
 
   render() {
 
+      console.log(this.state.latitude);
+      console.log(this.state.longitude);
+
     return (
         <Map
           google={this.props.google}
-          zoom={8}
+          zoom={11}
           style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
+          center={{
+              lat: this.state.latitude,
+              lng: this.state.longitude
+          }}
         >
           {this.displayMarkers()}
         </Map>
@@ -47,5 +57,5 @@ export class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'YOUR_API_KEY'
+  apiKey: 'YOUR API KEY'
 })(MapContainer);

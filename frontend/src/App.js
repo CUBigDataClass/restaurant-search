@@ -28,12 +28,14 @@ class App extends React.Component {
       breview_count: '',
       btop_10: '',
       response: '',
+      selectedlat: 0,
+      selectedLong: 0,
       buttonClicked: false
     }
   }
 
-  onDataReceived = (response) => {
-    this.setState({response: response})
+  onDataReceived = (response, lat, long) => {
+    this.setState({response: response, selectedlat: lat, selectedlong: long})
   };
 
   handleButtonClick = () => {
@@ -50,10 +52,10 @@ class App extends React.Component {
               <AutoComplete onDataReceived={this.onDataReceived} handleButtonClick={this.handleButtonClick}/>
 
               { this.state.buttonClicked ? <div>
-                  <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
+                  <MDBRow style={{marginRight: '30px', marginLeft: '15px' }}>
                       <Grow
                           in={this.state.buttonClicked}>
-                          <MDBCol size="3"><AlignItemsList rest_list={this.state.response} onClick={(current_rest) => {
+                          <MDBCol size="3" style={{padding: '0px 0px 0px 10px', margin: '0px'  }}><AlignItemsList rest_list={this.state.response} onClick={(current_rest) => {
                               // this.setState({index:index})
                               this.setState({ bid: current_rest.bid,
                               bname: current_rest.bname ,
@@ -73,7 +75,7 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 1000 } : {})}
                       >
-                          <MDBCol size="5"><RecipeReviewCard bid= {this.state.bid} bname= {this.state.bname}
+                          <MDBCol size="5" style={{padding: '0px 0px 0px 10px', margin: '0px'  }}><RecipeReviewCard bid= {this.state.bid} bname= {this.state.bname}
                               baddress= {this.state.baddress}
                               bcategories= {this.state.bcategories}
                               bcity= {this.state.bcity}
@@ -89,7 +91,7 @@ class App extends React.Component {
                           style={{ transformOrigin: '0 0 0' }}
                           {...(this.state.buttonClicked ? { timeout: 2000 } : {})}
                       >
-                          <MDBCol size="4"><SimpleCard centreLat={} centeLong={} lat={this.state.blocation.split(',')[0]} lng={this.state.blocation.split(',')[1]}/></MDBCol>
+                          <MDBCol size="4" style={{padding: '0px 0px 0px 10px', marginRight: '0px'  }}><SimpleCard selectedlat={this.state.selectedlat} selectedlong={this.state.selectedlong} lat={this.state.blocation.split(',')[0]} lng={this.state.blocation.split(',')[1]}/></MDBCol>
                           {/* <MDBCol size="4"></MDBCol> */}
                       </Grow>
 

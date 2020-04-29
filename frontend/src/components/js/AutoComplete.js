@@ -138,7 +138,7 @@ class AutoComplete extends React.Component {
             .then((res) => {
                 console.log(res)
                 this.setState({response: res})
-                this.props.onDataReceived(this.state.response);
+                this.props.onDataReceived(this.state.response, lat, long);
             })
             .catch((error) => {
                 // handle error

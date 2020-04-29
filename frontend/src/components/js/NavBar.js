@@ -92,7 +92,7 @@ class NavBar extends Component {
                             ],
                         }}
                     >
-                        Restaurant Recommender
+                        Uber chEats
                     </Texty>
                     <TweenOne
                         className="combined-bar"

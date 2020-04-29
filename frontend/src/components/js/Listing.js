@@ -64,7 +64,7 @@ class AlignItemsList extends React.Component {
                             <React.Fragment>
                                 <ListItem key={key} className={'list_item' + key} alignItems="flex-start" onClick={((e) => props.onClick({bid: item["business_id"], bname: item["name"],bcategories: item["categories"], bcity: item["city"],blocation : item["location"], brating : item["rating"], breview_count : item["reviewCount"], btop_10: item["top_10_reviews"]}))}>
                                     <ListItemAvatar>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                        <Avatar alt={item["name"]} src="/static/images/avatar/1.jpg" />
                                     </ListItemAvatar>
                                     <ListItemText
                                     primary={item["name"]}
