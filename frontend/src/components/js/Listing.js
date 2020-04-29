@@ -43,11 +43,11 @@ class AlignItemsList extends React.Component {
         } = this;
         return (
             <Card>
-            <div style={{height:'82vh'}}>
+            <div style={{height:'80vh'}}>
                 <List className="listing-parent">
                     <PaginationList 
                         data={props.rest_list.data}
-                        pageSize={10}
+                        pageSize={5}
                         renderItem={(item, key) => (
                             <React.Fragment>
                                 <ListItem key={key}alignItems="flex-start" onClick={((e) => props.onClick({bid: item["business_id"], bname: item["name"],bcategories: item["categories"], bcity: item["city"],blocation : item["location"], brating : item["rating"], breview_count : item["reviewCount"], btop_10: item["top_10_reviews"]}))}>
