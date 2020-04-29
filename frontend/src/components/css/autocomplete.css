@@ -2,10 +2,9 @@
 }
 
 .react-autosuggest__container {
-    display: inline-block;
-    position: relative;
-    padding: 16px;
-    width: 70%;
+
+    margin-left: 10px;
+    padding: 10px 5px 10px 5px;
 }
 
 .react-autosuggest__input {
@@ -20,13 +19,6 @@
     background-color: #fff;
 }
 
-.search-query-suggestion-input {
-    width: 80%;
-}
-
-.location-suggestion-input {
-    width: 20%;
-}
 .react-autosuggest__input::placeholder {
     color: #777;
     opacity: 1;
@@ -78,23 +70,17 @@
 
 .search-button-container {
     display: inline-block;
-    width: 30%;
+    width: 100%;
     position: absolute;
     margin-top: 16px;
 }
 
 .search-button-query {
-    display: inline-block;
-    width: 40%;
+    width: 100%;
     height: 50px;
-    margin-right: 16px;
-    position: relative;
 }
 
 .search-button-search {
-    display: inline-block;
-    width: 58%;
+    width: 100%;
     height: 50px;
-    position: relative;
-    margin-right: 16px;
 }

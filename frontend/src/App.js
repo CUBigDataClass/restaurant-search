@@ -46,7 +46,8 @@ class App extends React.Component {
           <NavBar/>
         {/*{this.props.coords}*/}
           <div>
-              <AutoComplete onDataReceived={this.onDataReceived} handleButtonClick={this.handleButtonClick} lat={40.01916} long={-105.2753}/>
+
+              <AutoComplete onDataReceived={this.onDataReceived} handleButtonClick={this.handleButtonClick}/>
 
               { this.state.buttonClicked ? <div>
                   <MDBRow style={{marginRight: '15px', marginLeft: '15px' }}>
